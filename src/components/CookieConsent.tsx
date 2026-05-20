@@ -23,7 +23,7 @@ export default function CookieConsent() {
   }
 
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] flex items-end justify-center p-4 sm:items-center">
+    <div className="fixed bottom-0 left-1/2 -translate-x-1/2 z-[100] flex items-end justify-center p-4 sm:items-center">
       {/* backdrop */}
       {/* <div className="absolute inset-0 bg-black/30" aria-hidden="true" /> */}
 
