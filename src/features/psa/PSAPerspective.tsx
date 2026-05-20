@@ -57,7 +57,7 @@ export default function PSAPerspective({ controls }: PSAPerspectiveProps) {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-6">
-        <div className="lg:sticky lg:top-[178px] lg:self-start">
+        <div className="lg:sticky lg:top-[134px] lg:self-start">
           <div className="bg-white rounded-lg shadow-md p-5 max-h-[calc(100vh-12rem)] overflow-y-auto">
             <h2 className="text-lg font-semibold mb-4 text-gray-800">{t.page.inputData}</h2>
 
