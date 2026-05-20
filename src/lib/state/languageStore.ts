@@ -4,6 +4,13 @@ import type { Language } from "@/lib/i18n/translations";
 
 const DEFAULT_LANGUAGE: Language = "pt";
 const STORAGE_KEY = "language-storage";
+const LANG_COOKIE = "lang";
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
+
+function setLangCookie(lang: Language): void {
+  if (typeof document === "undefined") return;
+  document.cookie = `${LANG_COOKIE}=${lang};path=/;max-age=${COOKIE_MAX_AGE};samesite=lax`;
+}
 const supportedLanguages: readonly Language[] = ["pt", "en"];
 
 function isLanguage(value: unknown): value is Language {
@@ -80,16 +87,16 @@ export const useLanguageStore = create<LanguageState>()(
   persist(
     (set) => ({
       ...resolveInitialLanguage(),
-      setLanguage: (lang) =>
-        set({
-          language: isLanguage(lang) ? lang : DEFAULT_LANGUAGE,
-          hasUserOverride: true,
-        }),
-      clearLanguageOverride: () =>
-        set({
-          language: detectLanguageFromBrowser(),
-          hasUserOverride: false,
-        }),
+      setLanguage: (lang) => {
+        const resolved = isLanguage(lang) ? lang : DEFAULT_LANGUAGE;
+        setLangCookie(resolved);
+        set({ language: resolved, hasUserOverride: true });
+      },
+      clearLanguageOverride: () => {
+        const detected = detectLanguageFromBrowser();
+        setLangCookie(detected);
+        set({ language: detected, hasUserOverride: false });
+      },
     }),
     {
       name: STORAGE_KEY,

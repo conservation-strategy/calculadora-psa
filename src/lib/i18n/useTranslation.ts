@@ -1,4 +1,5 @@
 import { useLanguageStore } from "../state/languageStore";
+import { useLanguageContext } from "@/components/LanguageProvider";
 import { useMemo, useCallback } from "react";
 import {
   translations,
@@ -48,7 +49,11 @@ function mergeWithFallback<T extends Record<string, unknown>>(
 }
 
 export function useTranslation() {
-  const language = useLanguageStore((state) => state.language);
+  const contextLanguage = useLanguageContext();
+  const storeLanguage = useLanguageStore((state) => state.language);
+  const hasUserOverride = useLanguageStore((state) => state.hasUserOverride);
+
+  const language = hasUserOverride ? storeLanguage : contextLanguage;
   const safeLanguage = language in translations ? language : DEFAULT_LANGUAGE;
 
   const t = useMemo(

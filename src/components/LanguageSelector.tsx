@@ -1,9 +1,11 @@
 "use client";
 
 import { useLanguageStore } from "@/lib/state/languageStore";
+import { useTranslation } from "@/lib/i18n/useTranslation";
 
 export function LanguageSelector() {
-  const { language, setLanguage } = useLanguageStore();
+  const { setLanguage } = useLanguageStore();
+  const { language } = useTranslation();
 
   return (
     <div className="flex items-center gap-2 bg-white rounded-lg shadow-sm border border-gray-200 p-1">

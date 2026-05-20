@@ -1,19 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
-import { useLanguageStore } from "@/lib/state/languageStore";
-
-const localeByLanguage = {
-  pt: "pt-BR",
-  en: "en-US",
-} as const;
+import { useTranslation } from "@/lib/i18n/useTranslation";
 
 export default function LanguageHtmlSync() {
-  const language = useLanguageStore((state) => state.language);
+  const { locale } = useTranslation();
 
   useEffect(() => {
-    document.documentElement.lang = localeByLanguage[language] ?? "pt-BR";
-  }, [language]);
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   return null;
 }
