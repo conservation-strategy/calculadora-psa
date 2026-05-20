@@ -8,8 +8,8 @@ import type { Language } from "@/lib/i18n/translations";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Dashboard de Regularização Ambiental",
-  description: "Dashboard para análise de custos de regularização ambiental",
+  title: "Calculadora PSA",
+  description: "Calculadora para análise de custos de regularização ambiental",
 };
 
 const SUPPORTED_LANGUAGES: readonly Language[] = ["pt", "en"];
