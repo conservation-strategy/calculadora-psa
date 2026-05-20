@@ -650,6 +650,11 @@ export const translations = {
       SP: "São Paulo",
       TO: "Tocantins",
     },
+    cookie: {
+      message:
+        "Este site utiliza cookies para lembrar sua preferência de idioma. Nenhum dado pessoal é coletado.",
+      accept: "Entendi",
+    },
   },
 
   en: {
@@ -1304,6 +1309,11 @@ export const translations = {
       SE: "Sergipe",
       SP: "São Paulo",
       TO: "Tocantins",
+    },
+    cookie: {
+      message:
+        "This site uses cookies to remember your language preference. No personal data is collected.",
+      accept: "Got it",
     },
   },
 } as const;

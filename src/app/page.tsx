@@ -6,6 +6,7 @@ import LanguageHtmlSync from "@/components/LanguageHtmlSync";
 import PSAPerspective from "@/features/psa/PSAPerspective";
 import { usePSAControls } from "@/features/psa/usePSAControls";
 import { useTranslation } from "@/lib/i18n/useTranslation";
+import CookieConsent from "@/components/CookieConsent";
 
 export default function PSAStandalonePage() {
   const { t } = useTranslation();
@@ -14,6 +15,7 @@ export default function PSAStandalonePage() {
   return (
     <main className="min-h-screen bg-gray-100">
       <LanguageHtmlSync />
+      <CookieConsent />
 
       <div className="sticky top-0 z-50">
         <div className="w-full bg-white border-b border-gray-200 shadow-sm">
